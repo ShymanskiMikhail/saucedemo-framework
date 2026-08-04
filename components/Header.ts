@@ -12,7 +12,7 @@ export class Header {
     this.cartIcon = page.locator('.shopping_cart_link');
     this.cartBadge = page.locator('.shopping_cart_badge');
     this.burgerMenu = page.locator('#react-burger-menu-btn');
-    this.logoutLink = page.getByTestId('logout-sidebar-link');
+    this.logoutLink = page.locator('#logout_sidebar_link');
   }
 
   async getCartItemsCount(): Promise<number> {

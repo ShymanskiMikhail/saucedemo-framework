@@ -8,19 +8,21 @@ export class CartPage {
   constructor(page: Page) {
     this.page = page;
     this.cartList = page.locator('.cart_list');
-    this.checkoutButton = page.getByTestId('checkout');
+    this.checkoutButton = page.locator('#checkout');
   }
 
   async navigate(): Promise<void> {
-    await this.page.goto('/cart.html');
+    await this.page.goto('/cart.html', { waitUntil: 'domcontentloaded' });
   }
 
   async getItemCount(): Promise<number> {
-    return await this.page.locator('.cart_item').count();
+    return await this.cartList.locator('.cart_item').count();
   }
 
   async removeItem(itemName: string): Promise<void> {
-    const item = this.page.locator('.cart_item').filter({ hasText: itemName });
+    const item = this.cartList
+      .locator('.cart_item')
+      .filter({ hasText: itemName });
     await item.getByRole('button', { name: 'Remove' }).click();
   }
 

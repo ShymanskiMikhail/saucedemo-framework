@@ -11,11 +11,11 @@ export class CheckoutPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.firstNameInput = page.getByTestId('firstName');
-    this.lastNameInput = page.getByTestId('lastName');
-    this.postalCodeInput = page.getByTestId('postalCode');
-    this.continueButton = page.getByTestId('continue');
-    this.finishButton = page.getByTestId('finish');
+    this.firstNameInput = page.locator('#first-name');
+    this.lastNameInput = page.locator('#last-name');
+    this.postalCodeInput = page.locator('#postal-code');
+    this.continueButton = page.locator('#continue');
+    this.finishButton = page.locator('#finish');
     this.completeHeader = page.locator('.complete-header');
   }
 

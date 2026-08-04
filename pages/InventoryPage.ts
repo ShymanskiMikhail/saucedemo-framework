@@ -11,7 +11,7 @@ export class InventoryPage {
     this.page = page;
     this.header = new Header(page);
     this.inventoryList = page.locator('.inventory_list');
-    this.sortDropdown = page.getByTestId('product-sort-container');
+    this.sortDropdown = page.locator('.product_sort_container');
   }
 
   async addItemToCart(itemName: string): Promise<void> {
@@ -33,7 +33,7 @@ export class InventoryPage {
   }
 
   async getItemCount(): Promise<number> {
-    return await this.page.locator('.inventory_item').count();
+    return await this.inventoryList.locator('.inventory_item').count();
   }
 
   async getItemNames(): Promise<string[]> {

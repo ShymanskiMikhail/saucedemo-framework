@@ -20,4 +20,8 @@ export class ShopFacade {
     await this.loginPage.login(username, password);
     await this.inventoryPage.addItemToCart(itemName);
   }
+
+  async goToCart(): Promise<void> {
+    await this.inventoryPage.header.goToCart();
+  }
 }
